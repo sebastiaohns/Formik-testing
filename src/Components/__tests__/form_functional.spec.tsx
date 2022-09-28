@@ -18,16 +18,16 @@ describe("FormFunctional", () => {
 
       render(<FormFunctional onSubmit={handleSubmit} validate={validate} />);
 
-      await user.type(screen.getByLabelText(/name/i), "sebastiao");
+      await user.type(screen.getByLabelText(/name/i), "user");
 
-      await user.type(screen.getByLabelText(/email/i), "sebastiao@mail.com");
+      await user.type(screen.getByLabelText(/email/i), "mail@mail.com");
 
       await user.click(screen.getByRole("button", { name: /submit/i }));
 
       await waitFor(() =>
         expect(handleSubmit).toHaveBeenCalledWith({
-          email: "sebastiao@mail.com",
-          name: "sebastiao",
+          name: "user",
+          email: "mail@mail.com",
         })
       );
     });
@@ -37,18 +37,18 @@ describe("FormFunctional", () => {
 
       await act(async () => {
         fireEvent.input(screen.getByTestId("name"), {
-          target: { value: "name" },
+          target: { value: "user" },
         });
 
         fireEvent.input(screen.getByTestId("email"), {
-          target: { value: "sebastiao@mail.com" },
+          target: { value: "mail@mail.com" },
         });
 
         fireEvent.submit(screen.getByText("Submit"));
 
         expect(handleSubmit).toHaveBeenCalledWith({
-          email: "sebastiao@mail.com",
-          name: "sebastiao",
+          name: "user",
+          email: "mail@mail.com",
         });
       });
     });
@@ -58,11 +58,11 @@ describe("FormFunctional", () => {
 
       await act(async () => {
         fireEvent.change(screen.getByTestId("name"), {
-          target: { value: "sebastiao" },
+          target: { value: "user" },
         });
 
         fireEvent.change(screen.getByTestId("email"), {
-          target: { value: "sebatiao@mail.com" },
+          target: { value: "mail@mail.com" },
         });
 
         fireEvent.click(screen.getByText("Cancel"));
@@ -100,11 +100,11 @@ describe("FormFunctional", () => {
 
       await act(async () => {
         fireEvent.change(screen.getByTestId("name"), {
-          target: { value: "sebastiao" },
+          target: { value: "user" },
         });
 
         fireEvent.input(screen.getByTestId("email"), {
-          target: { value: "sebatiao@mail" },
+          target: { value: "mail@mail" },
         });
 
         fireEvent.submit(screen.getByText("Submit"));
