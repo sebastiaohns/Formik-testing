@@ -15,7 +15,7 @@ const FormComponent = ({
         name: "",
         email: "",
       }}
-      onSubmit={onSubmit}
+      onSubmit={(values) => onSubmit(values)}
       validate={validate}
     >
       {({ touched, errors, resetForm }): React.ReactElement => (

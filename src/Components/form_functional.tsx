@@ -13,8 +13,8 @@ const FormFunctional = ({
       name: "",
       email: "",
     },
+    onSubmit: (values) => onSubmit(values),
     validate,
-    onSubmit,
   });
 
   return (
