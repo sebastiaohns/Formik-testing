@@ -8,8 +8,7 @@ const FormComponent = ({
   onSubmit: (values: FormValues) => void;
   validate: (values: FormValues) => FormikErrors<FormValues>;
 }) => (
-  <div>
-    <h1>Formik component</h1>
+  <section>
     <Formik
       initialValues={{
         name: "",
@@ -21,18 +20,18 @@ const FormComponent = ({
       {({ touched, errors, resetForm }): React.ReactElement => (
         <Form>
           <label htmlFor="name">Name</label>
-          <Field id="name" name="name" data-testid="name" />
-          {touched.name && errors.name && <div>{errors.name}</div>}
+          <Field id="name" name="name" type="text" data-testid="name" />
+          {touched.name && errors.name && <span>{errors.name}</span>}
 
           <label htmlFor="email">Email</label>
           <Field id="email" name="email" type="email" data-testid="email" />
-          {touched.email && errors.email && <div>{errors.email}</div>}
+          {touched.email && errors.email && <span>{errors.email}</span>}
 
           <button type="submit">Submit</button>
           <button onClick={(): void => resetForm()}>Cancel</button>
         </Form>
       )}
     </Formik>
-  </div>
+  </section>
 );
 export { FormComponent };

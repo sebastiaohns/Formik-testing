@@ -18,36 +18,38 @@ const FormFunctional = ({
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        name="name"
-        type="text"
-        data-testid="name"
-        onChange={formik.handleChange}
-        value={formik.values.name}
-      />
-      {formik.touched.name && formik.errors.name && (
-        <div>{formik.errors.name}</div>
-      )}
+    <section>
+      <form onSubmit={formik.handleSubmit}>
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          data-testid="name"
+          onChange={formik.handleChange}
+          value={formik.values.name}
+        />
+        {formik.touched.name && formik.errors.name && (
+          <span>{formik.errors.name}</span>
+        )}
 
-      <label htmlFor="email">Email</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        data-testid="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-      {formik.touched.email && formik.errors.email && (
-        <div>{formik.errors.email}</div>
-      )}
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          data-testid="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+        />
+        {formik.touched.email && formik.errors.email && (
+          <span>{formik.errors.email}</span>
+        )}
 
-      <button type="submit">Submit</button>
-      <button onClick={(): void => formik.resetForm()}>Cancel</button>
-    </form>
+        <button type="submit">Submit</button>
+        <button onClick={(): void => formik.resetForm()}>Cancel</button>
+      </form>
+    </section>
   );
 };
 
