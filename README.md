@@ -40,9 +40,8 @@ Formik testing
 
 - [React.js](https://pt-br.reactjs.org/)
 - [Vite](https://vitejs.dev/)
-- [Styled-Components](https://styled-components.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Axios](https://axios-http.com/)
+- [Formik](https://formik.org/docs/overview)
+- [Jest](https://jestjs.io/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
